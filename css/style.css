@@ -1,59 +1,162 @@
 @charset "UTF-8";
 
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* CORPO */
+/* =========================
+   BASE
+========================= */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #111;
     color: #fff;
 }
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    background-color: #000;
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
 }
 
-header h1 {
+/* =========================
+   HERO HEADER
+========================= */
+.hero-header {
+    position: relative;
+    height: 100vh;
+    background: url('../imagens/foto-tempo.png') center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    
+}
+
+/* BLOCO FIXO SUPERIOR ESQUERDO */
+.top-bar {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    z-index: 3;
+}
+
+/* Overlay escuro */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.37);
+}
+
+/* Conteúdo central */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    text-align: left;
+    margin-left: 8%;
+}
+
+/* Marca */
+.brand {
+    font-size: 64px;
+    letter-spacing: 2px;
     color: #c59d5f;
+
+}
+
+.brand-fixed {
+    position: absolute;
+    top: 30px;
+    left: 60px;
     font-size: 28px;
+    letter-spacing: 2px;
+    color: #c59d5f;
+    z-index: 3;
+}
+
+.slogan {
+    font-size: 18px;
+    margin-bottom: 35px;
+    color: #ddd;
+}
+
+/* =========================
+   NAV
+========================= */
+nav {
+    display: flex;
+    gap: 35px;
 }
 
 nav a {
-    text-decoration: none;
     color: #fff;
-    margin-left: 25px;
-    font-weight: bold;
-    transition: 0.3s;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    position: relative;
+
+    transition: 0.3 ease;
+}
+
+/* Linha animada */
+nav a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: #c59d5f;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s ease;
 }
 
 nav a:hover {
     color: #c59d5f;
 }
 
-/* SEÇÃO SERVIÇOS */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   BOTÃO
+========================= */
+.btn {
+    display: inline-block;
+    background-color: #c59d5f;
+    color: #000;
+    padding: 14px 35px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #fff;
+}
+
+/* =========================
+   SERVIÇOS
+========================= */
 #servicos {
-    padding: 80px 60px;
+    padding: 100px 60px;
     text-align: center;
     background-color: #1a1a1a;
 }
 
 #servicos h2 {
     font-size: 36px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     color: #c59d5f;
 }
 
-/* CARDS */
+/* Cards */
 .cards {
     display: flex;
     justify-content: center;
@@ -66,16 +169,16 @@ nav a:hover {
     width: 300px;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.4s ease;
+    transition: 0.4s ease;
 }
 
 .card img {
     width: 100%;
     display: block;
-    transition: transform 0.4s ease;
+    transition: 0.4s ease;
 }
 
-/* EFEITO ZOOM */
+/* Zoom */
 .card:hover img {
     transform: scale(1.1);
 }
@@ -93,55 +196,44 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* HERO SECTION */
-#hero {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('../imagens/barbearia.jpg') center/cover no-repeat;
-    text-align: center;
-    padding: 20px;
-}
-
-#hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-/* BOTÃO */
-.btn {
-    background-color: #c59d5f;
-    color: #000;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #fff;
-}
-
-/* RESPONSIVIDADE */
+/* =========================
+   RESPONSIVO
+========================= */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
+
+    .brand {
+        font-size: 36px;
+    }
+
+    @media (max-width: 768px) {
+}
+
+    .brand-fixed {
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+
+    .slogan {
+        font-size: 15px;
     }
 
     nav {
-        margin-top: 15px;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    #hero h2 {
-        font-size: 32px;
+    #servicos {
+        padding: 60px 20px;
     }
+
 }
