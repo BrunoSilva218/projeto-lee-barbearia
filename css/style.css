@@ -18,6 +18,10 @@ body {
     color: #fff;
 }
 
+html{
+scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
     transition: 0.3s ease;
@@ -45,26 +49,33 @@ a {
 
 /* TOPO ESQUERDO (LOGO + MENU) */
 .top-bar {
-    position: absolute;
-    top: 30px;
-    left: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 60px;
-    z-index: 3;
+    z-index: 1000;
+    padding: 20px 60px;
+
+
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    
 }
 
 /* Marca */
 .brand {
-    font-size: 32px;
-    letter-spacing: 4px;
+    font-size: 25px;
+    letter-spacing: 3px;
     color: #fff;
 }
 
 /* NAV */
 nav {
     display: flex;
-    gap: 34px;
+    gap: 20px;
 }
 
 nav a {
@@ -130,6 +141,10 @@ nav a:hover::after {
 .btn-hero:hover {
     background-color: #c59d5f;
     color: #000;
+}
+
+#agendamento{
+scroll-margin-top:120px;
 }
 
 /* =========================
@@ -206,7 +221,7 @@ nav a:hover::after {
 }
 
 .imagem img{
-    width: 350px;
+    width: 400px;
     border-radius: 10px;
 }
 
@@ -280,7 +295,7 @@ nav a:hover::after {
         gap: 15px;
         left: 0;
         top: 0;
-        margin-top: 20px;
+        padding: 20px;
     }
 
     .brand {
@@ -288,15 +303,26 @@ nav a:hover::after {
         text-align: center;
     }
 
+    /* Menu */
     nav {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+        align-items: center;
     }
 
+    nav a {
+        font-size: 16px;
+    }
+    /* Hero Texto */
     .hero-content {
-        margin: 0 auto;
+        margin: 120px auto 40px auto;
         text-align: center;
         padding: 0 20px;
+    }
+
+    .hero-header {
+    height: auto;
+    padding-bottom: 60px;
     }
 
     .experience {
@@ -306,8 +332,43 @@ nav a:hover::after {
     .description {
         font-size: 15px;
     }
-
+    /* Serviços */
     #servicos {
         padding: 60px 20px;
+    }
+
+    .cards{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Sobre */
+
+    .container-sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagem img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Contato */
+    .container-contato{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .formulario input,
+    .formulario textarea {
+        width: 100%;
+        max-width: 300px;
     }
 }
